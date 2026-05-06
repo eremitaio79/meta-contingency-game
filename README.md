@@ -17,8 +17,7 @@ It provides:
 - browser persistence for session recovery
 
 ## Why this project matters
-This project is a real validation case for the SDD blueprint maintained in:
-- `D:\IA DEV Tools\sdd-blueprint\sdd`
+This project is a real validation case for a private internal SDD blueprint used as a reusable delivery framework.
 
 It was not used only as a planning aid. The blueprint shaped:
 - feature decomposition
