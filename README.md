@@ -5,10 +5,6 @@ A deployed psychology research application built with React, TypeScript, and an 
 ## Live application
 - URL: [https://codelib.com.br/app/](https://codelib.com.br/app/)
 
-## Public positioning assets
-- [LinkedIn post draft](docs/LINKEDIN-POST-DRAFT.md)
-- [GitHub profile kit](docs/GITHUB-PROFILE-KIT.md)
-
 ## What it does
 This application supports a multi-participant experimental flow for metacontingency research.
 
