@@ -1,0 +1,95 @@
+version: 1
+project: Meta Contingency Game (MCG)
+description: Plano de execução para o MVP do sistema de simulação de metacontingência.
+
+milestones:
+  - id: m1-bootstrap
+    title: Bootstrap Documental
+    status: completed
+  - id: m2-core-logic
+    title: Motor do Jogo e Lógica de Condições
+    status: in-progress
+  - id: m3-interfaces
+    title: Interfaces Pesquisador e Jogadores
+    status: in-progress
+  - id: m4-data-export
+    title: Persistência e Exportação de Dados
+    status: in-progress
+
+features:
+  - id: feat-001-config
+    title: Configuração Inicial
+    description: Interface para definir nomes dos jogadores e sequência de condições.
+    milestone: m3-interfaces
+    status: completed
+    priority: high
+
+  - id: feat-002-sync-base
+    title: Sincronização via LocalStorage
+    description: Infraestrutura de comunicação entre janela do pesquisador e jogadores.
+    milestone: m2-core-logic
+    status: completed
+    priority: high
+
+  - id: feat-003-game-engine
+    title: Motor de Jogadas
+    description: Lógica de seleção de jogador, escolha de linha e resposta da máquina (bola cheia/vazia).
+    milestone: m2-core-logic
+    status: completed
+    priority: high
+
+  - id: feat-004-conditions-abc
+    title: Lógica de Condições A, B, C
+    description: Implementação de feedbacks e gatilhos de transição para condições A, B e C.
+    milestone: m2-core-logic
+    status: completed
+    priority: high
+
+  - id: feat-005-condition-d
+    title: Lógica de Condição D
+    description: Implementação da transição complexa baseada em performance histórica de culturantes.
+    milestone: m2-core-logic
+    status: in-progress
+    priority: high
+
+  - id: feat-006-researcher-panel
+    title: Painel do Pesquisador
+    description: Visualização em tempo real de pontuações, culturantes e espelho do tabuleiro.
+    milestone: m3-interfaces
+    status: in-progress
+    priority: medium
+
+  - id: feat-007-player-interface
+    title: Interface dos Jogadores
+    description: Tabuleiro interativo 10x10 e feedbacks visuais específicos.
+    milestone: m3-interfaces
+    status: in-progress
+    priority: medium
+
+  - id: feat-008-persistence
+    title: Persistência (SQLite)
+    description: Salvar estado do jogo para pausa/retorno e log detalhado.
+    milestone: m4-data-export
+    status: completed
+    priority: high
+
+  - id: feat-009-excel-export
+    title: Exportação Excel
+    description: Geração da planilha final com dados formatados para pesquisa.
+    milestone: m4-data-export
+    status: completed
+    priority: medium
+
+  - id: feat-010-results-screen
+    title: Visualização de Resultados em Tela
+    description: Leitura estruturada da sessão em tabela dinâmica para o pesquisador sem depender do Excel.
+    milestone: m3-interfaces
+    status: completed
+    priority: medium
+
+  - id: feat-011-config-onboarding-ux
+    title: Ambientação e Onboarding da Tela Inicial
+    description: Fundo fixo, card translúcido, modal de instruções e reorganização da configuração inicial para reduzir rolagem vertical.
+    milestone: m3-interfaces
+    status: completed
+    priority: medium

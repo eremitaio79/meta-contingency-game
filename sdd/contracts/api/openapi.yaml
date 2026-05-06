@@ -1,0 +1,8 @@
+openapi: 3.1.0
+info:
+  title: Project API Contract
+  version: 0.1.0
+  description: Contrato inicial para ser substituido pelo projeto real.
+paths: {}
+components:
+  schemas: {}

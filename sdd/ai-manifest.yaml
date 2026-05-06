@@ -1,0 +1,118 @@
+version: 2
+name: sdd-universal-bootstrap
+purpose: >
+  Manifesto canonico para leitura progressiva da pasta sdd por Codex
+  ou qualquer outro provider de IA.
+
+entrypoints:
+  human_start: sdd/START-HERE.md
+  ai_start: sdd/README.md
+  ignition_prompt: sdd/IGNITION-PROMPT.md
+  ignition_prompt_codex: sdd/IGNITION-PROMPT-CODEX.md
+  project_briefing_lite: sdd/PROJECT-INIT-lite.md
+  project_briefing_schema: sdd/PROJECT-INIT.md
+  agent_roles: sdd/AGENTS.md
+  workflow: sdd/WORKFLOW.md
+  traceability: sdd/traceability.yaml
+
+bootstrap_order:
+  - sdd/README.md
+  - sdd/IGNITION-PROMPT-CODEX.md
+  - sdd/IGNITION-PROMPT.md
+  - sdd/PROJECT-INIT-lite.md
+  - sdd/PROJECT-INIT.md
+  - sdd/AGENTS.md
+  - sdd/WORKFLOW.md
+  - sdd/traceability.yaml
+
+directories:
+  context:
+    purpose: contexto estavel do projeto
+    priority: high
+  specs:
+    purpose: fonte de verdade funcional por feature ou capacidade
+    priority: critical
+    required_template_files:
+      - requirements.md
+      - design.md
+      - tasks.md
+  contracts:
+    purpose: contratos tecnicos legiveis por humano e por maquina
+    priority: high
+  decisions:
+    purpose: adrs e registro de tradeoffs
+    priority: high
+  execution:
+    purpose: plano consolidado, ordem de implementacao e status macro
+    priority: high
+    subdirs:
+      handoffs: memoria operacional numerada entre execucoes e chats
+  reviews:
+    purpose: pareceres e validacoes formais
+    priority: medium
+  tests:
+    purpose: testes derivados de specs
+    priority: high
+  templates:
+    purpose: material de apoio generico
+    priority: low
+
+agent_policy:
+  red:
+    reads_first:
+      - sdd/README.md
+      - sdd/PROJECT-INIT.md
+      - sdd/context/product/
+      - sdd/context/architecture/domain-map.md
+    writes_to:
+      - sdd/specs/
+      - sdd/context/product/
+  data:
+    reads_first:
+      - sdd/specs/
+      - sdd/contracts/
+      - sdd/context/architecture/
+      - sdd/decisions/
+    writes_to:
+      - sdd/decisions/
+      - sdd/reviews/
+  spock:
+    reads_first:
+      - sdd/specs/
+      - sdd/contracts/
+      - sdd/decisions/
+      - sdd/execution/handoffs/
+      - sdd/tests/
+    writes_to:
+      - sdd/execution/
+      - sdd/execution/handoffs/
+      - sdd/tests/
+  picasso:
+    reads_first:
+      - sdd/specs/
+      - sdd/contracts/
+      - sdd/context/product/
+      - sdd/context/architecture/
+      - sdd/execution/handoffs/
+    writes_to:
+      - sdd/execution/
+      - sdd/execution/handoffs/
+      - sdd/tests/
+
+provider_guidance:
+  do_not:
+    - ler a arvore inteira antes de identificar entrypoints
+    - tratar exemplos como se fossem artefatos reais
+    - duplicar regras de negocio entre specs e contratos
+    - criar status operacional espalhado em varias pastas
+    - retomar execucao sem consultar o ultimo handoff
+    - recomendar novo chat sem entregar instrucao inicial
+  prefer:
+    - leitura progressiva
+    - arquivos canonicos curtos e densos
+    - spec por capacidade de negocio
+    - contratos machine-readable sempre que possivel
+    - rastreabilidade explicita entre spec, contrato, decisao, execucao e teste
+    - gerar um handoff numerado ao fim de cada execucao relevante
+    - usar chat central para direcao e chats separados para frentes relevantes
+    - sempre entregar titulo e instrucao inicial ao recomendar novo chat

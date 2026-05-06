@@ -1,0 +1,18 @@
+Como usar a SDD
+
+------------------------------------------------------
+
+O seu ponto zero está pronto em:
+
+--> PROJECT-INIT-PONTO-ZERO.docx
+
+------------------------------------------------------
+
+Resumo operacional:
+
+--> você copia a pasta sdd/ para o projeto novo
+--> preenche PROJECT-INIT-lite.md ou PROJECT-INIT.md
+--> cola o conteúdo de IGNITION-PROMPT-CODEX.md no Codex
+--> cola o conteúdo de IGNITION-PROMPT.md no provider IA de sua preferência
+--> a IA deve montar todo o bootstrap documental primeiro
+--> implementação só depois da sua aprovação

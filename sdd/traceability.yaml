@@ -1,0 +1,33 @@
+version: 1
+rules:
+  - every_spec_should_link:
+      - related_context
+      - related_contracts
+      - related_decisions
+      - related_tests
+  - every_contract_should_reference:
+      - owning_spec
+  - every_review_should_reference:
+      - target_spec
+      - decision_or_risk_if_any
+  - every_test_suite_should_reference:
+      - source_spec
+      - acceptance_criteria
+  - every_relevant_execution_should_reference:
+      - changed_artifacts
+      - next_step
+      - next_chat_title_if_any
+      - next_chat_instruction_if_any
+
+spec_template_reference:
+  requirements: sdd/specs/_template/requirements.md
+  design: sdd/specs/_template/design.md
+  tasks: sdd/specs/_template/tasks.md
+
+artifact_naming:
+  specs: sdd/specs/<feature-slug>/
+  decisions: sdd/decisions/ADR-XXX-<slug>.md
+  reviews: sdd/reviews/<yyyy-mm-dd>-<feature-slug>-review.md
+  tests: sdd/tests/<suite>/<feature-slug>.md
+  execution_handoff: sdd/execution/handoffs/NNN-<slug>.md
+  chat_title_pattern: <project-code> <scope> - <short-purpose>
